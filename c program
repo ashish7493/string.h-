@@ -1,0 +1,119 @@
+#include<stdio.h>
+
+int strlen(char str[])
+{ int length;
+	for( length=0; str[length]!='\0'; length++){
+		
+	}
+		return length;
+}
+
+void strUpr(char str[])
+{ int length;
+	for(length=0; str[length]!='\0'; length++)
+	{
+		if(str[length]>=97 && str[length]<=122){
+			str[length]-=32;
+		}
+	}
+}
+
+void strLwr(char str[])
+{ int length;
+	for(length=0; str[length]!='\0'; length++)
+	{
+		if(str[length]>= 65 && str[length]<=97){
+			str[length]+=32;
+		}
+	}
+}
+
+int strcmp(char left[], char right[])
+{
+	int i=0;
+	while(left[i]!='\0' && right[i]!='\0' && left[i]==right[i])
+	{
+		i++;
+	}
+	return left[i]- right[i];
+}
+
+int strchr(char str[], char chr)
+{  
+	for(int i=0; str[i]!='\0'; i++)
+	{
+		if(str[i]==chr)
+		return i;
+		
+	}
+	
+}
+int strstr (char str[], char substr[])
+{   int i,j;
+	
+	for(i=0; str[i]!='\0'; i++)
+	{
+		int res = i;
+	
+		for( j=0; substr[j]!='\0' && str[res]==substr[j]; j++)
+		{ 
+		 res++;
+	     }
+	
+		if(substr[j]=='\0'){
+		
+		    return i;
+          }
+     }
+		return -1;
+			}
+			
+	void strrev(char str[])
+	{
+		int length;
+		for(length=0; str[length]!='\0'; length++);
+		
+		for(int i=0; i<length/2; i++){
+			 char temp = str[i];
+       		 str[i] = str[length - i - 1];
+       		 str[length - i - 1] = temp;
+		}
+		
+	}
+
+
+int main(){
+	/*char mystring[]= "Hello there";
+	int length= strlen(mystring);
+	  printf("Size of string is %d",length);
+	*/
+	
+/*	char originalstring[]= "HELLO";
+	strUpr(originalstring);
+	printf("Uppercase String %s",originalstring);*/
+	
+/*	char originalstring[]= "HELLO";
+	strLwr(originalstring);
+	printf("Lowercase String %s",originalstring);
+	*/
+/*	char left[]="ashish";
+	char right[]="ashis";
+	strcmp(left,right);
+	printf("%d\n");*/
+	
+	/*char str[]="ashish";
+	char chr = 'h';
+	printf("%d\n",strchr(str,chr));
+	*/	
+	
+/*	char str[] = "GeeksforGeeks";
+	char substr[]= "for";
+	int result= strstr(str, substr);
+	printf("%d",result);
+	return 0;	
+	*/
+	
+	char str[]="Hello";
+	strrev(str);
+	printf("%s",str);
+}
